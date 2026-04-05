@@ -1,29 +1,1186 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Stylers Art</title>
-<style>
-body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:#070b12;color:#eaf1ff;}
-a{color:#7bdcfd;}
-.wrap{max-width:900px;margin:0 auto;padding:56px 22px;}
-.card{background:#0f1624;border:1px solid rgba(123,220,253,.25);border-radius:18px;padding:24px;}
-h1{margin:0 0 12px;font-size:44px;letter-spacing:-0.04em;}
-p{margin:0 0 18px;opacity:.86;line-height:1.6;}
-.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border:0;border-radius:999px;padding:12px 16px;font-weight:750;background:#7bdcfd;color:#061018;}
-.btn:hover{filter:brightness(1.06);}
-footer{margin-top:28px;font-size:13px;opacity:.58;}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stylers Art Gallery | 時代畫廊 | San Francisco Chinatown</title>
+  <meta
+    name="description"
+    content="Stylers Art Gallery is the Chinese art gallery in San Francisco Chinatown, offering traditional Chinese calligraphy and painting, mounting and custom framing, seal carving, and curated art objects."
+  >
+  <style>
+    :root {
+      --paper: #f6eddc;
+      --paper-deep: #e3cfac;
+      --ink: #181311;
+      --ink-soft: #3a302b;
+      --ink-faint: rgba(24, 19, 17, 0.68);
+      --cinnabar: #8e3228;
+      --cinnabar-deep: #642019;
+      --gold: #b8904d;
+      --gold-soft: rgba(184, 144, 77, 0.18);
+      --line: rgba(74, 50, 33, 0.14);
+      --line-strong: rgba(74, 50, 33, 0.26);
+      --mist: rgba(255, 250, 242, 0.7);
+      --shadow: 0 28px 90px rgba(25, 19, 15, 0.17);
+      --radius-xl: 36px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --content-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top, rgba(184, 144, 77, 0.24), transparent 34%),
+        radial-gradient(circle at 80% 14%, rgba(142, 50, 40, 0.16), transparent 18%),
+        linear-gradient(180deg, #fbf5ea 0%, #ebdbc0 52%, #f5eddf 100%);
+      font-family: "Avenir Next", "Helvetica Neue", "Segoe UI", sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.14) 0, rgba(255, 255, 255, 0) 35%),
+        repeating-linear-gradient(
+          0deg,
+          rgba(76, 56, 39, 0.028) 0,
+          rgba(76, 56, 39, 0.028) 1px,
+          transparent 1px,
+          transparent 6px
+        );
+      opacity: 0.5;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 20px;
+      top: -50px;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 10px 14px;
+      border-radius: 999px;
+      z-index: 10;
+      text-decoration: none;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus-visible {
+      top: 20px;
+      outline: 3px solid rgba(184, 144, 77, 0.8);
+      outline-offset: 2px;
+    }
+
+    .page-shell {
+      position: relative;
+      isolation: isolate;
+      overflow: clip;
+    }
+
+    .page-shell::after {
+      content: "時代畫廊";
+      position: fixed;
+      right: -16px;
+      top: 22%;
+      writing-mode: vertical-rl;
+      font-family: "Songti SC", "STSong", "PMingLiU", serif;
+      letter-spacing: 0.22em;
+      font-size: clamp(26px, 4vw, 54px);
+      color: rgba(142, 50, 40, 0.14);
+      pointer-events: none;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--content-width));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 28px 0 18px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 12px;
+      text-decoration: none;
+      flex-wrap: wrap;
+    }
+
+    .brand-mark {
+      font-family: "Songti SC", "STSong", "PMingLiU", serif;
+      font-size: 1.18rem;
+      letter-spacing: 0.18em;
+      color: var(--cinnabar);
+    }
+
+    .brand-text,
+    .top-link,
+    .meta-kicker,
+    .detail-label,
+    .footnote {
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    .brand-text {
+      color: var(--ink-soft);
+      font-weight: 700;
+    }
+
+    .top-link {
+      text-decoration: none;
+      color: var(--ink-soft);
+      border-bottom: 1px solid rgba(58, 48, 43, 0.28);
+      padding-bottom: 2px;
+    }
+
+    .hero {
+      padding-bottom: 34px;
+      position: relative;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(10px);
+      z-index: 0;
+    }
+
+    .hero::before {
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(184, 144, 77, 0.18), transparent 68%);
+      top: 40px;
+      right: -100px;
+    }
+
+    .hero::after {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(142, 50, 40, 0.16), transparent 70%);
+      bottom: 10px;
+      left: -80px;
+    }
+
+    .hero-panel,
+    .landmark-card,
+    .visit-card,
+    .atmosphere-card,
+    .discipline-card {
+      position: relative;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255, 250, 242, 0.82), rgba(250, 241, 226, 0.68));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-panel {
+      padding: clamp(28px, 5vw, 54px);
+      border-radius: var(--radius-xl);
+      min-height: 620px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+      gap: clamp(24px, 4vw, 42px);
+      align-items: stretch;
+      overflow: hidden;
+    }
+
+    .hero-copy,
+    .hero-aside {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, rgba(255, 255, 255, 0.1), transparent 34%),
+        radial-gradient(circle at 72% 22%, rgba(184, 144, 77, 0.18), transparent 24%);
+    }
+
+    .hero-panel::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      right: -70px;
+      bottom: -70px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(142, 50, 40, 0.14), transparent 64%);
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--cinnabar);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    h1,
+    h2,
+    h3,
+    .display-line {
+      font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 6vw, 6.3rem);
+      max-width: 10ch;
+    }
+
+    .display-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 24px 0 0;
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+    }
+
+    .display-line .seal {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, var(--cinnabar), var(--cinnabar-deep));
+      color: #f8f0e0;
+      font-family: "Songti SC", "STSong", "PMingLiU", serif;
+      font-size: 1.05rem;
+      box-shadow: 0 18px 38px rgba(100, 32, 25, 0.26);
+    }
+
+    .lead {
+      max-width: 60ch;
+      margin: 24px 0 0;
+      color: var(--ink-faint);
+      font-size: clamp(1.02rem, 1.8vw, 1.15rem);
+    }
+
+    .hero-actions,
+    .visit-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+    }
+
+    .button:focus-visible,
+    .top-link:focus-visible,
+    .detail-link:focus-visible {
+      outline: 3px solid rgba(184, 144, 77, 0.8);
+      outline-offset: 3px;
+    }
+
+    .button-primary {
+      background: linear-gradient(180deg, #9d4033, #74251d);
+      color: #fbf4e8;
+      box-shadow: 0 22px 40px rgba(116, 37, 29, 0.26);
+    }
+
+    .button-secondary {
+      color: var(--ink);
+      background: rgba(255, 250, 242, 0.76);
+      border: 1px solid var(--line-strong);
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .hero-details {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--ink-faint);
+      font-size: 0.95rem;
+    }
+
+    .hero-details span {
+      padding: 9px 12px;
+      border: 1px solid rgba(74, 50, 33, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 250, 242, 0.56);
+    }
+
+    .hero-aside {
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      gap: 16px;
+      align-self: end;
+    }
+
+    .aside-card {
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(40, 28, 23, 0.96), rgba(22, 16, 13, 0.96));
+      color: #f6ede3;
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .aside-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(184, 144, 77, 0.18), transparent 20%),
+        linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.05) 100%);
+    }
+
+    .aside-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .aside-card h2 {
+      font-size: clamp(1.5rem, 2vw, 2rem);
+      margin-top: 4px;
+    }
+
+    .aside-card p {
+      margin: 12px 0 0;
+      color: rgba(246, 237, 227, 0.78);
+    }
+
+    .meta-kicker {
+      color: rgba(246, 237, 227, 0.66);
+    }
+
+    .seal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .seal-note {
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(184, 144, 77, 0.2);
+      background: linear-gradient(180deg, rgba(255, 248, 238, 0.86), rgba(239, 227, 205, 0.72));
+      min-height: 126px;
+    }
+
+    .seal-note strong {
+      display: block;
+      font-family: "Iowan Old Style", Georgia, serif;
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+    }
+
+    main {
+      padding-bottom: 72px;
+    }
+
+    .section-head {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .section-tag {
+      color: var(--cinnabar);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 0.77rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.7vw, 3.5rem);
+      max-width: 12ch;
+    }
+
+    .section-copy {
+      color: var(--ink-faint);
+      max-width: 62ch;
+      margin: 0;
+    }
+
+    .disciplines,
+    .landmark,
+    .atmosphere,
+    .visit {
+      padding-top: 34px;
+    }
+
+    .disciplines-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .discipline-card {
+      border-radius: var(--radius-lg);
+      padding: 24px 22px 22px;
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .discipline-card:hover,
+    .discipline-card:focus-within {
+      transform: translateY(-4px);
+      border-color: rgba(142, 50, 40, 0.24);
+      box-shadow: 0 32px 80px rgba(25, 19, 15, 0.22);
+    }
+
+    .discipline-mark {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Iowan Old Style", Georgia, serif;
+      font-size: 1.25rem;
+      color: var(--cinnabar);
+      background: linear-gradient(180deg, rgba(184, 144, 77, 0.18), rgba(184, 144, 77, 0.06));
+      border: 1px solid rgba(184, 144, 77, 0.24);
+    }
+
+    .discipline-card h3 {
+      font-size: 1.45rem;
+    }
+
+    .discipline-card p {
+      margin: 0;
+      color: var(--ink-faint);
+    }
+
+    .discipline-card .footnote {
+      margin-top: auto;
+      color: var(--cinnabar);
+    }
+
+    .landmark-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .landmark-card {
+      border-radius: var(--radius-xl);
+      padding: clamp(24px, 4vw, 40px);
+      overflow: hidden;
+    }
+
+    .landmark-card.story {
+      min-height: 420px;
+      background:
+        linear-gradient(180deg, rgba(255, 251, 245, 0.82), rgba(241, 230, 211, 0.76)),
+        radial-gradient(circle at top right, rgba(184, 144, 77, 0.14), transparent 36%);
+    }
+
+    .landmark-card.story::after {
+      content: "";
+      position: absolute;
+      right: -20px;
+      bottom: -20px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(142, 50, 40, 0.12), transparent 66%);
+    }
+
+    .landmark-quote {
+      margin: 36px 0 0;
+      padding-left: 18px;
+      border-left: 2px solid rgba(142, 50, 40, 0.34);
+      font-family: "Iowan Old Style", Georgia, serif;
+      font-size: clamp(1.35rem, 2vw, 1.8rem);
+      max-width: 16ch;
+      color: var(--ink-soft);
+    }
+
+    .landmark-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .landmark-mini {
+      border-radius: 28px;
+      min-height: 200px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(180deg, rgba(29, 22, 18, 0.96), rgba(17, 12, 10, 0.96)),
+        linear-gradient(135deg, rgba(184, 144, 77, 0.1), transparent 50%);
+      color: #f7f0e4;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .landmark-mini::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(184, 144, 77, 0.2), transparent 24%);
+    }
+
+    .landmark-mini > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .landmark-mini h3 {
+      font-size: 1.65rem;
+    }
+
+    .landmark-mini p {
+      margin: 10px 0 0;
+      color: rgba(247, 240, 228, 0.78);
+    }
+
+    .atmosphere-card {
+      border-radius: var(--radius-xl);
+      padding: clamp(26px, 4vw, 40px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+      gap: 20px;
+      overflow: hidden;
+    }
+
+    .atmosphere-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(140deg, rgba(255, 255, 255, 0.08), transparent 34%),
+        radial-gradient(circle at 85% 10%, rgba(142, 50, 40, 0.1), transparent 18%);
+    }
+
+    .atmosphere-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .atmosphere-copy blockquote {
+      margin: 20px 0 0;
+      padding: 0;
+      border: 0;
+      font-family: "Iowan Old Style", Georgia, serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.45rem);
+      line-height: 1.2;
+      max-width: 18ch;
+    }
+
+    .atmosphere-copy p {
+      margin: 18px 0 0;
+      color: var(--ink-faint);
+      max-width: 54ch;
+    }
+
+    .atmosphere-columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      align-self: end;
+    }
+
+    .material-card {
+      min-height: 168px;
+      border-radius: 24px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255, 249, 240, 0.9), rgba(234, 221, 200, 0.72)),
+        radial-gradient(circle at top, rgba(184, 144, 77, 0.12), transparent 48%);
+    }
+
+    .material-card strong {
+      display: block;
+      font-family: "Iowan Old Style", Georgia, serif;
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+
+    .material-card p {
+      margin: 0;
+      color: var(--ink-faint);
+    }
+
+    .visit-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(300px, 0.94fr);
+      gap: 18px;
+    }
+
+    .visit-card {
+      border-radius: var(--radius-xl);
+      padding: clamp(24px, 4vw, 40px);
+    }
+
+    .visit-card.primary {
+      background:
+        linear-gradient(180deg, rgba(255, 251, 245, 0.84), rgba(242, 231, 212, 0.76)),
+        radial-gradient(circle at top left, rgba(184, 144, 77, 0.12), transparent 34%);
+    }
+
+    .visit-card.secondary {
+      background:
+        linear-gradient(180deg, rgba(28, 22, 18, 0.95), rgba(18, 14, 11, 0.96)),
+        linear-gradient(135deg, rgba(184, 144, 77, 0.08), transparent 45%);
+      color: #f7efe1;
+    }
+
+    .visit-card.secondary .section-tag,
+    .visit-card.secondary .footnote {
+      color: rgba(184, 144, 77, 0.86);
+    }
+
+    .visit-card.secondary .section-copy,
+    .visit-card.secondary p {
+      color: rgba(247, 239, 225, 0.78);
+    }
+
+    .details-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .detail-row {
+      display: grid;
+      grid-template-columns: 140px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding-top: 16px;
+      border-top: 1px solid rgba(74, 50, 33, 0.12);
+    }
+
+    .visit-card.secondary .detail-row {
+      border-top-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .detail-label {
+      color: var(--cinnabar);
+      font-weight: 700;
+    }
+
+    .visit-card.secondary .detail-label {
+      color: rgba(184, 144, 77, 0.86);
+    }
+
+    .detail-value {
+      display: grid;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .detail-link {
+      text-decoration: none;
+      border-bottom: 1px solid rgba(58, 48, 43, 0.22);
+      width: fit-content;
+    }
+
+    .visit-card.secondary .detail-link {
+      border-bottom-color: rgba(247, 239, 225, 0.22);
+    }
+
+    .phone-note,
+    .hours-note {
+      color: var(--ink-faint);
+      font-size: 0.96rem;
+    }
+
+    .visit-card.secondary .phone-note,
+    .visit-card.secondary .hours-note {
+      color: rgba(247, 239, 225, 0.72);
+    }
+
+    .hours-display {
+      font-family: "Iowan Old Style", Georgia, serif;
+      font-size: 1.55rem;
+    }
+
+    .footer {
+      padding: 26px 0 34px;
+      border-top: 1px solid rgba(74, 50, 33, 0.12);
+      color: var(--ink-faint);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer mark {
+      padding: 0;
+      background: none;
+      color: var(--cinnabar);
+      font-family: "Songti SC", "STSong", "PMingLiU", serif;
+      letter-spacing: 0.18em;
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+    }
+
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero-panel,
+      .landmark-layout,
+      .atmosphere-card,
+      .visit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .disciplines-grid,
+      .atmosphere-columns {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .page-shell::after {
+        top: auto;
+        bottom: 120px;
+        font-size: 34px;
+      }
+
+      .hero-panel {
+        min-height: unset;
+      }
+
+      .hero-aside {
+        align-self: stretch;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(calc(100% - 28px), var(--content-width));
+      }
+
+      .topbar {
+        align-items: flex-start;
+      }
+
+      .hero-panel {
+        padding: 24px 20px;
+      }
+
+      .disciplines-grid,
+      .atmosphere-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      [data-reveal] {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 </head>
 <body>
-<main class="wrap">
-<section class="card">
-<h1>Stylers Art</h1>
-<p>Modern, clean, and easy. Click below to jump to our location.</p>
-<a class="btn" href="https://maps.app.goo.gl/ptZwc1iJpUVsR38F8" target="_blank" rel="noopener">Open in Google Maps</a>
-</section>
-<footer>© 2026 Stylers Art</footer>
-</main>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="container">
+        <nav class="topbar" aria-label="Primary">
+          <a class="brand" href="#main">
+            <span class="brand-mark">時代畫廊</span>
+            <span class="brand-text">Stylers Art Gallery</span>
+          </a>
+          <a class="top-link" href="https://maps.app.goo.gl/ptZwc1iJpUVsR38F8" target="_blank" rel="noopener">Open Map</a>
+        </nav>
+
+        <section class="hero-panel" data-reveal>
+          <div class="hero-copy">
+            <p class="eyebrow">San Francisco Chinatown</p>
+            <h1>The only Chinese art gallery in San Francisco&rsquo;s Chinatown.</h1>
+            <p class="display-line">
+              <span class="seal">印</span>
+              <span>Traditional art, mounting, framing, and seal carving under one roof.</span>
+            </p>
+            <p class="lead">
+              Stylers Art Gallery presents traditional Chinese calligraphy and paintings, professional
+              mounting and custom framing, seal carving, and a curated range of art objects in a setting
+              shaped for discovery, craftsmanship, and in-person appreciation.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="https://maps.app.goo.gl/ptZwc1iJpUVsR38F8" target="_blank" rel="noopener">Plan Your Visit</a>
+              <a class="button button-secondary" href="#visit">View Hours &amp; Contact</a>
+            </div>
+            <div class="hero-details" aria-label="Gallery highlights">
+              <span>Traditional Chinese Calligraphy &amp; Painting</span>
+              <span>Custom Framing &amp; Mounting</span>
+              <span>Seal Carving</span>
+              <span>Traditional Chinese Art Goods</span>
+            </div>
+          </div>
+
+          <div class="hero-aside" aria-hidden="true">
+            <article class="aside-card">
+              <p class="meta-kicker">Chinatown landmark</p>
+              <h2>Brush, paper, stone, and the quiet weight of craft.</h2>
+              <p>
+                A destination for visitors who want to encounter traditional Chinese art in a place that
+                feels rooted, collected, and still active in the life of the neighborhood.
+              </p>
+            </article>
+            <div class="seal-grid">
+              <div class="seal-note">
+                <strong>Mounting &amp; Framing</strong>
+                <span>Handled with the same attention given to the artwork itself.</span>
+              </div>
+              <div class="seal-note">
+                <strong>Seal Carving</strong>
+                <span>A tactile signature tradition in stone, detail, and permanence.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="disciplines">
+        <div class="container">
+          <div class="section-head" data-reveal>
+            <p class="section-tag">Signature Disciplines</p>
+            <h2 class="section-title">A gallery first, with craft services woven into the visit.</h2>
+            <p class="section-copy">
+              The page leads with place and atmosphere, but the essentials remain clear: the gallery is a
+              destination for collectors, curious passersby, and anyone seeking traditional Chinese art and
+              carefully executed custom work.
+            </p>
+          </div>
+
+          <div class="disciplines-grid">
+            <article class="discipline-card" data-reveal>
+              <div class="discipline-mark">書</div>
+              <h3>Calligraphy &amp; Painting</h3>
+              <p>
+                Traditional Chinese works that carry the energy of brush, paper, and ink with a calm,
+                collected presentation.
+              </p>
+              <span class="footnote">Fine art with a literati sensibility</span>
+            </article>
+
+            <article class="discipline-card" data-reveal>
+              <div class="discipline-mark">裱</div>
+              <h3>Mounting &amp; Framing</h3>
+              <p>
+                Professional mounting and custom framing that respects the material character of each piece
+                while preparing it to live well on the wall.
+              </p>
+              <span class="footnote">Crafted for preservation and display</span>
+            </article>
+
+            <article class="discipline-card" data-reveal>
+              <div class="discipline-mark">印</div>
+              <h3>Seal Carving</h3>
+              <p>
+                Traditional seal cutting for those who value the cultural weight of mark-making, authorship,
+                and stone-carved identity.
+              </p>
+              <span class="footnote">Personal, ceremonial, and lasting</span>
+            </article>
+
+            <article class="discipline-card" data-reveal>
+              <div class="discipline-mark">藝</div>
+              <h3>Art Objects</h3>
+              <p>
+                A wide variety of traditional Chinese art products and objects that reward close looking and
+                in-person discovery.
+              </p>
+              <span class="footnote">Collected items beyond the expected souvenir</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="landmark">
+        <div class="container">
+          <div class="landmark-layout">
+            <article class="landmark-card story" data-reveal>
+              <p class="section-tag">Chinatown Landmark</p>
+              <h2 class="section-title">A rare stop in the neighborhood, shaped for walking in.</h2>
+              <p class="section-copy">
+                In San Francisco&rsquo;s Chinatown, Stylers Art Gallery stands apart as the area&rsquo;s Chinese
+                art gallery: a place where traditional painting, calligraphy, framing craft, seals, and
+                collected objects are part of one continuous cultural experience.
+              </p>
+              <p class="section-copy">
+                The site should feel like an invitation to step inside, not a product catalog. Visitors
+                should come away with the sense that this is a place to linger, ask questions, and see more
+                than the street itself can reveal.
+              </p>
+              <p class="landmark-quote">
+                A Chinatown visit gains depth when it includes a room devoted to paper, ink, stone, and
+                long-handed tradition.
+              </p>
+            </article>
+
+            <div class="landmark-grid">
+              <article class="landmark-mini" data-reveal>
+                <p class="meta-kicker">What makes it distinct</p>
+                <h3>The only Chinese gallery in Chinatown</h3>
+                <p>
+                  That distinction anchors the whole page. It should read less like a claim and more like a
+                  clear reason to come in person.
+                </p>
+              </article>
+
+              <article class="landmark-mini" data-reveal>
+                <p class="meta-kicker">Why visit in person</p>
+                <h3>Some things only register at full scale.</h3>
+                <p>
+                  Texture, mounting detail, seal surfaces, and the overall atmosphere are better encountered
+                  in the gallery than compressed into a storefront grid.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="atmosphere">
+        <div class="container">
+          <article class="atmosphere-card" data-reveal>
+            <div class="atmosphere-copy">
+              <p class="section-tag">Gallery Atmosphere</p>
+              <h2 class="section-title">Parchment light, ink depth, and the tactility of handmade tradition.</h2>
+              <blockquote>
+                “The feeling should be closer to entering a collected room than browsing a typical shop.”
+              </blockquote>
+              <p>
+                This section gives the page its emotional center without requiring a full image archive.
+                Instead, it uses language, texture, and material references to suggest what the gallery holds:
+                layered paper, brushwork, framed scrolls, carved seals, and objects whose meaning grows the
+                longer you stay with them.
+              </p>
+            </div>
+
+            <div class="atmosphere-columns">
+              <article class="material-card">
+                <strong>Paper &amp; Silk</strong>
+                <p>Soft fibers, mounted surfaces, and carefully balanced framing that support the work.</p>
+              </article>
+              <article class="material-card">
+                <strong>Ink &amp; Brush</strong>
+                <p>Gesture, restraint, and the tonal range that makes traditional painting quietly dramatic.</p>
+              </article>
+              <article class="material-card">
+                <strong>Stone &amp; Seal</strong>
+                <p>Carved detail, tactile weight, and the ceremonial feel of a mark that belongs to someone.</p>
+              </article>
+              <article class="material-card">
+                <strong>Collected Objects</strong>
+                <p>Traditional Chinese art goods selected for presence, craftsmanship, and discoverability.</p>
+              </article>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="visit" class="visit">
+        <div class="container">
+          <div class="visit-grid">
+            <article class="visit-card primary" data-reveal>
+              <p class="section-tag">Plan Your Visit</p>
+              <h2 class="section-title">Come by during gallery hours, or arrange a visit beyond them.</h2>
+              <p class="section-copy">
+                Visiting in person is the main invitation. The gallery is open daily, including weekends and
+                most holidays, with appointments available outside regular hours.
+              </p>
+
+              <div class="details-list">
+                <div class="detail-row">
+                  <div class="detail-label">Address</div>
+                  <div class="detail-value">
+                    <strong>661 Jackson St, San Francisco, CA 94133</strong>
+                    <a class="detail-link" href="https://maps.app.goo.gl/ptZwc1iJpUVsR38F8" target="_blank" rel="noopener">Open in Google Maps</a>
+                  </div>
+                </div>
+
+                <div class="detail-row">
+                  <div class="detail-label">Hours</div>
+                  <div class="detail-value">
+                    <div class="hours-display">Every day, 11AM to 3PM</div>
+                    <div class="hours-note">Including weekends and most holidays.</div>
+                  </div>
+                </div>
+
+                <div class="detail-row">
+                  <div class="detail-label">Appointments</div>
+                  <div class="detail-value">
+                    <strong>Outside regular hours by arrangement.</strong>
+                    <div class="hours-note">Contact us if you would like to schedule a visit or service appointment beyond those hours.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="visit-actions">
+                <a class="button button-primary" href="https://maps.app.goo.gl/ptZwc1iJpUVsR38F8" target="_blank" rel="noopener">Get Directions</a>
+                <a class="button button-secondary" href="tel:4156921765">Call In English</a>
+              </div>
+            </article>
+
+            <article class="visit-card secondary" data-reveal>
+              <p class="section-tag">Contact</p>
+              <h2 class="section-title">Two phone lines, depending on the conversation you need.</h2>
+              <p class="section-copy">
+                Reach out for visit questions, framing and mounting needs, seal carving inquiries, or to set
+                an appointment outside standard gallery hours.
+              </p>
+
+              <div class="details-list">
+                <div class="detail-row">
+                  <div class="detail-label">English</div>
+                  <div class="detail-value">
+                    <a class="detail-link" href="tel:4156921765">(415) 692-1765</a>
+                    <span class="phone-note">For English-language inquiries.</span>
+                  </div>
+                </div>
+
+                <div class="detail-row">
+                  <div class="detail-label">中文</div>
+                  <div class="detail-value">
+                    <a class="detail-link" href="tel:4156406298">(415) 640-6298</a>
+                    <span class="phone-note">Mandarin or Cantonese only.</span>
+                  </div>
+                </div>
+
+                <div class="detail-row">
+                  <div class="detail-label">Identity</div>
+                  <div class="detail-value">
+                    <strong>Stylers Art Gallery <span class="brand-mark">時代畫廊</span></strong>
+                    <span class="phone-note">Traditional Chinese art in the heart of San Francisco Chinatown.</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>Stylers Art Gallery <mark>時代畫廊</mark></p>
+        <p>661 Jackson St, San Francisco, CA 94133 · (415) 692-1765 · (415) 640-6298</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const revealNodes = document.querySelectorAll("[data-reveal]");
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        }
+      }, { threshold: 0.18 });
+
+      revealNodes.forEach((node) => observer.observe(node));
+    } else {
+      revealNodes.forEach((node) => node.classList.add("is-visible"));
+    }
+  </script>
 </body>
 </html>
