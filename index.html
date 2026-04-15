@@ -308,6 +308,9 @@
     }
 
     .button {
+      appearance: none;
+      border: 0;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -740,8 +743,34 @@
       width: fit-content;
     }
 
+    button.detail-link {
+      padding: 0;
+      min-height: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      border-radius: 0;
+    }
+
     .visit-card.secondary .detail-link {
       border-bottom-color: rgba(247, 239, 225, 0.22);
+    }
+
+    .footer-phone {
+      appearance: none;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+      border-bottom: 1px solid rgba(58, 48, 43, 0.22);
+    }
+
+    .footer-phone:focus-visible {
+      outline: 3px solid rgba(184, 144, 77, 0.8);
+      outline-offset: 3px;
     }
 
     .phone-note,
@@ -1109,7 +1138,7 @@
 
               <div class="visit-actions">
                 <a class="button button-primary" href="https://maps.app.goo.gl/ptZwc1iJpUVsR38F8" target="_blank" rel="noopener">Get Directions</a>
-                <a class="button button-secondary" href="tel:4156921765">Call In English</a>
+                <button class="button button-secondary" type="button" data-phone-reveal="english-cta" data-phone-key="english">Show phone number</button>
               </div>
             </article>
 
@@ -1125,7 +1154,7 @@
                 <div class="detail-row">
                   <div class="detail-label">English</div>
                   <div class="detail-value">
-                    <a class="detail-link" href="tel:4156921765">(415) 692-1765</a>
+                    <button class="detail-link" type="button" data-phone-reveal="english-contact" data-phone-key="english">Show phone number</button>
                     <span class="phone-note">For English-language inquiries.</span>
                   </div>
                 </div>
@@ -1133,7 +1162,7 @@
                 <div class="detail-row">
                   <div class="detail-label">中文</div>
                   <div class="detail-value">
-                    <a class="detail-link" href="tel:4156406298">(415) 640-6298</a>
+                    <button class="detail-link" type="button" data-phone-reveal="chinese-contact" data-phone-key="chinese">Show phone number</button>
                     <span class="phone-note">Mandarin or Cantonese only.</span>
                   </div>
                 </div>
@@ -1155,12 +1184,44 @@
     <footer class="footer">
       <div class="container footer-inner">
         <p>Stylers Art Gallery <mark>時代畫廊</mark></p>
-        <p>661 Jackson St, San Francisco, CA 94133 · (415) 692-1765 · (415) 640-6298</p>
+        <p>
+          661 Jackson St, San Francisco, CA 94133 ·
+          <button class="footer-phone" type="button" data-phone-reveal="english-footer" data-phone-key="english">Show phone number</button>
+          ·
+          <button class="footer-phone" type="button" data-phone-reveal="chinese-footer" data-phone-key="chinese">Show phone number</button>
+        </p>
       </div>
     </footer>
   </div>
 
   <script>
+    const phoneDirectory = {
+      english: ["415", "692", "1765"],
+      chinese: ["415", "640", "6298"],
+    };
+
+    const formatPhoneNumber = ([p1, p2, p3]) => `(${p1}) ${p2}-${p3}`;
+
+    const revealPhoneNumber = (trigger) => {
+      const parts = phoneDirectory[trigger.dataset.phoneKey];
+
+      if (!parts) {
+        return;
+      }
+
+      const link = document.createElement("a");
+      link.className = trigger.className;
+      link.href = `tel:${parts.join("")}`;
+      link.textContent = formatPhoneNumber(parts);
+      link.setAttribute("aria-label", `Call ${link.textContent}`);
+
+      trigger.replaceWith(link);
+    };
+
+    document.querySelectorAll("[data-phone-reveal]").forEach((trigger) => {
+      trigger.addEventListener("click", () => revealPhoneNumber(trigger), { once: true });
+    });
+
     const revealNodes = document.querySelectorAll("[data-reveal]");
 
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
