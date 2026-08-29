@@ -165,6 +165,24 @@
       padding-bottom: 2px;
     }
 
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .top-link-featured {
+      color: var(--cinnabar-deep);
+      border: 1px solid rgba(142, 50, 40, 0.28);
+      background: rgba(255, 250, 242, 0.72);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 800;
+      box-shadow: 0 12px 28px rgba(100, 32, 25, 0.1);
+    }
+
     .hero {
       padding-bottom: 34px;
       position: relative;
@@ -861,6 +879,10 @@
         align-items: flex-start;
       }
 
+      .top-actions {
+        gap: 10px;
+      }
+
       .hero-panel {
         padding: 24px 20px;
       }
@@ -910,7 +932,10 @@
             <span class="brand-mark">時代畫廊</span>
             <span class="brand-text">Stylers Art Gallery</span>
           </a>
-          <a class="top-link" href="https://maps.app.goo.gl/ptZwc1iJpUVsR38F8" target="_blank" rel="noopener">Open Map</a>
+          <div class="top-actions">
+            <a class="top-link top-link-featured" href="faq.html">FAQ · 常見問題</a>
+            <a class="top-link" href="https://maps.app.goo.gl/ptZwc1iJpUVsR38F8" target="_blank" rel="noopener">Open Map</a>
+          </div>
         </nav>
 
         <section class="hero-panel" data-reveal>
@@ -929,6 +954,7 @@
             <div class="hero-actions">
               <a class="button button-primary" href="https://maps.app.goo.gl/ptZwc1iJpUVsR38F8" target="_blank" rel="noopener">Plan Your Visit</a>
               <a class="button button-secondary" href="#visit">View Hours &amp; Contact</a>
+              <a class="button button-secondary" href="faq.html">Read Our FAQ · 常見問題</a>
             </div>
             <div class="hero-details" aria-label="Gallery highlights">
               <span>Traditional Chinese Calligraphy &amp; Painting</span>
@@ -1185,6 +1211,7 @@
       <div class="container footer-inner">
         <p>Stylers Art Gallery <mark>時代畫廊</mark></p>
         <p>
+          <a href="faq.html">FAQ · 常見問題</a> ·
           661 Jackson St, San Francisco, CA 94133 ·
           <button class="footer-phone" type="button" data-phone-reveal="english-footer" data-phone-key="english">Show phone number</button>
           ·
