@@ -1,0 +1,950 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ | Frequently Asked Questions | Stylers Art Gallery | 時代畫廊</title>
+  <meta
+    name="description"
+    content="Bilingual answers to frequently asked questions about Chinese painting and calligraphy, traditional mounting, custom framing, purchasing artwork, visiting, shipping, and payment at Stylers Art Gallery in San Francisco Chinatown."
+  >
+  <style>
+    :root {
+      --paper: #f6eddc;
+      --ink: #181311;
+      --ink-soft: #3a302b;
+      --ink-faint: rgba(24, 19, 17, 0.7);
+      --cinnabar: #8e3228;
+      --cinnabar-deep: #642019;
+      --gold: #b8904d;
+      --line: rgba(74, 50, 33, 0.15);
+      --line-strong: rgba(74, 50, 33, 0.27);
+      --shadow: 0 24px 72px rgba(25, 19, 15, 0.14);
+      --content-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 18% 0%, rgba(184, 144, 77, 0.24), transparent 28%),
+        radial-gradient(circle at 86% 12%, rgba(142, 50, 40, 0.14), transparent 19%),
+        linear-gradient(180deg, #fbf5ea 0%, #ead9bc 55%, #f7f0e5 100%);
+      font-family: "Avenir Next", "Helvetica Neue", "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(76, 56, 39, 0.026) 0,
+        rgba(76, 56, 39, 0.026) 1px,
+        transparent 1px,
+        transparent 6px
+      );
+      opacity: 0.55;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 20px;
+      top: -60px;
+      padding: 10px 15px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--paper);
+      z-index: 20;
+      text-decoration: none;
+    }
+
+    .skip-link:focus-visible {
+      top: 18px;
+    }
+
+    .page-shell {
+      position: relative;
+      isolation: isolate;
+      overflow: clip;
+    }
+
+    .page-shell::after {
+      content: "常見問題";
+      position: fixed;
+      right: -14px;
+      top: 25%;
+      writing-mode: vertical-rl;
+      font-family: "Songti SC", "STSong", "PMingLiU", serif;
+      letter-spacing: 0.22em;
+      font-size: clamp(26px, 4vw, 48px);
+      color: rgba(142, 50, 40, 0.12);
+      pointer-events: none;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--content-width));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 28px 0 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      color: var(--cinnabar);
+      font-family: "Songti SC", "STSong", "PMingLiU", serif;
+      font-size: 1.18rem;
+      letter-spacing: 0.18em;
+    }
+
+    .brand-text,
+    .nav-link,
+    .eyebrow,
+    .section-kicker,
+    .language-label {
+      font-size: 0.78rem;
+      font-weight: 750;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .brand-text {
+      color: var(--ink-soft);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      background: rgba(255, 250, 242, 0.72);
+      color: var(--ink-soft);
+      text-decoration: none;
+    }
+
+    .nav-link.primary {
+      background: linear-gradient(180deg, #9d4033, #74251d);
+      color: #fbf4e8;
+      border-color: transparent;
+      box-shadow: 0 16px 30px rgba(116, 37, 29, 0.2);
+    }
+
+    .hero {
+      position: relative;
+      padding: 18px 0 28px;
+    }
+
+    .hero-panel {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(30px, 6vw, 66px);
+      border: 1px solid var(--line);
+      border-radius: 36px;
+      background:
+        linear-gradient(125deg, rgba(255, 251, 245, 0.9), rgba(242, 229, 207, 0.72)),
+        radial-gradient(circle at 85% 10%, rgba(142, 50, 40, 0.12), transparent 24%);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel::after {
+      content: "問";
+      position: absolute;
+      right: clamp(18px, 5vw, 62px);
+      bottom: -42px;
+      color: rgba(142, 50, 40, 0.1);
+      font-family: "Songti SC", "STSong", "PMingLiU", serif;
+      font-size: clamp(130px, 23vw, 260px);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+
+    .eyebrow,
+    .section-kicker {
+      margin: 0 0 14px;
+      color: var(--cinnabar);
+      letter-spacing: 0.22em;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      line-height: 1.12;
+    }
+
+    h1 {
+      max-width: 12ch;
+      font-size: clamp(3rem, 7vw, 6.1rem);
+      letter-spacing: -0.035em;
+    }
+
+    .hero-chinese {
+      margin: 16px 0 0;
+      color: var(--cinnabar-deep);
+      font-family: "Songti SC", "STSong", "PMingLiU", serif;
+      font-size: clamp(1.55rem, 3vw, 2.4rem);
+      letter-spacing: 0.08em;
+    }
+
+    .hero-intro {
+      max-width: 65ch;
+      margin: 24px 0 0;
+      color: var(--ink-faint);
+      font-size: 1.08rem;
+    }
+
+    .category-nav {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 22px 0 0;
+    }
+
+    .category-nav a {
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 250, 242, 0.68);
+      color: var(--ink-soft);
+      font-size: 0.91rem;
+      text-decoration: none;
+    }
+
+    main {
+      padding-bottom: 64px;
+    }
+
+    .faq-section {
+      padding-top: 46px;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 0.7fr) minmax(260px, 1.3fr);
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 20px;
+    }
+
+    .section-heading h2 {
+      max-width: 13ch;
+      font-size: clamp(2.1rem, 4.5vw, 3.7rem);
+      letter-spacing: -0.025em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--ink-faint);
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(220px, 0.82fr) minmax(0, 1.18fr);
+      gap: clamp(22px, 5vw, 60px);
+      padding: clamp(22px, 4vw, 36px);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(255, 251, 245, 0.83), rgba(246, 235, 217, 0.72));
+      box-shadow: 0 14px 40px rgba(25, 19, 15, 0.09);
+    }
+
+    .question-en {
+      font-size: clamp(1.28rem, 2vw, 1.62rem);
+    }
+
+    .question-zh {
+      margin-top: 11px;
+      color: var(--cinnabar-deep);
+      font-family: "Songti SC", "STSong", "PMingLiU", serif;
+      font-size: 1.08rem;
+      font-weight: 650;
+      line-height: 1.55;
+    }
+
+    .answer-block + .answer-block {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .language-label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--cinnabar);
+      font-size: 0.7rem;
+    }
+
+    .answer-block p {
+      margin: 0;
+      color: var(--ink-faint);
+    }
+
+    .answer-block ul {
+      margin: 10px 0 0;
+      padding-left: 1.25rem;
+      color: var(--ink-faint);
+    }
+
+    .answer-block li + li {
+      margin-top: 5px;
+    }
+
+    .closing-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(240px, 0.85fr);
+      gap: 24px;
+      align-items: center;
+      margin-top: 52px;
+      padding: clamp(26px, 5vw, 48px);
+      border-radius: 32px;
+      background: linear-gradient(180deg, rgba(31, 23, 19, 0.97), rgba(17, 12, 10, 0.97));
+      color: #f8efe2;
+      box-shadow: var(--shadow);
+    }
+
+    .closing-card h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+    }
+
+    .closing-card p {
+      margin: 14px 0 0;
+      color: rgba(248, 239, 226, 0.74);
+    }
+
+    .closing-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .closing-actions .nav-link {
+      color: #f8efe2;
+      border-color: rgba(248, 239, 226, 0.28);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .closing-actions .nav-link.primary {
+      background: linear-gradient(180deg, #a54839, #76261e);
+      border-color: transparent;
+    }
+
+    .footer {
+      padding: 28px 0 36px;
+      border-top: 1px solid var(--line);
+      color: var(--ink-faint);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer mark {
+      padding: 0;
+      background: none;
+      color: var(--cinnabar);
+      font-family: "Songti SC", "STSong", "PMingLiU", serif;
+      letter-spacing: 0.16em;
+    }
+
+    a:focus-visible {
+      outline: 3px solid rgba(184, 144, 77, 0.82);
+      outline-offset: 3px;
+    }
+
+    .nav-link,
+    .category-nav a {
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .category-nav a:hover {
+      transform: translateY(-2px);
+      border-color: rgba(142, 50, 40, 0.34);
+      box-shadow: 0 12px 28px rgba(25, 19, 15, 0.1);
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(calc(100% - 28px), var(--content-width));
+      }
+
+      .topbar,
+      .section-heading,
+      .faq-item,
+      .closing-card {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        align-items: flex-start;
+      }
+
+      .nav-actions {
+        justify-content: flex-start;
+      }
+
+      .faq-item {
+        gap: 20px;
+      }
+
+      .closing-actions {
+        justify-content: flex-start;
+      }
+
+      .page-shell::after {
+        display: none;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to FAQ</a>
+  <div class="page-shell">
+    <header>
+      <div class="container">
+        <nav class="topbar" aria-label="Primary">
+          <a class="brand" href="index.html">
+            <span class="brand-mark">時代畫廊</span>
+            <span class="brand-text">Stylers Art Gallery</span>
+          </a>
+          <div class="nav-actions">
+            <a class="nav-link" href="index.html#visit">Hours &amp; Contact</a>
+            <a class="nav-link primary" href="index.html">← Back to Home · 返回主頁</a>
+          </div>
+        </nav>
+
+        <section class="hero" aria-labelledby="faq-title">
+          <div class="hero-panel">
+            <div class="hero-copy">
+              <p class="eyebrow">Stylers Art Gallery · San Francisco Chinatown</p>
+              <h1 id="faq-title">Frequently Asked Questions</h1>
+              <p class="hero-chinese" lang="zh-Hant">常見問題</p>
+              <p class="hero-intro">
+                Practical answers about traditional Chinese art, mounting and framing, purchasing artwork,
+                visiting the gallery, shipping, and payment. Each answer is presented in English and Chinese.
+              </p>
+              <nav class="category-nav" aria-label="FAQ categories">
+                <a href="#about">About · 關於畫廊</a>
+                <a href="#mounting">Mounting · 裝裱服務</a>
+                <a href="#artwork">Artwork · 書畫購買</a>
+                <a href="#visiting">Visiting · 到訪與聯絡</a>
+                <a href="#arrangements">Purchases · 購買安排</a>
+              </nav>
+            </div>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="faq-section" id="about">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">About the Gallery</p>
+              <h2>Art and craft under one roof.</h2>
+            </div>
+            <p lang="zh-Hant">關於時代畫廊、我們所經營的藝術品，以及所提供的傳統工藝服務。</p>
+          </div>
+
+          <div class="faq-list">
+            <article class="faq-item">
+              <div>
+                <h3 class="question-en">What does Stylers Art Gallery specialize in?</h3>
+                <div class="question-zh" lang="zh-Hant">時代畫廊主要經營什麼？</div>
+              </div>
+              <div>
+                <div class="answer-block">
+                  <span class="language-label">English</span>
+                  <p>Stylers Art Gallery is a Chinese art gallery in San Francisco Chinatown. We present traditional Chinese paintings, calligraphy, and related art objects, and we also offer traditional mounting, custom framing, and consultation services.</p>
+                </div>
+                <div class="answer-block" lang="zh-Hant">
+                  <span class="language-label">中文</span>
+                  <p>時代畫廊是一家位於舊金山唐人街、專注於中國藝術的畫廊。我們展示和經營中國書畫及相關藝術品，也提供傳統裝裱、訂製鏡框和相關諮詢服務。</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq-section" id="mounting">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Mounting &amp; Framing</p>
+              <h2>Respecting both the artwork and its materials.</h2>
+            </div>
+            <p lang="zh-Hant">從卷軸和鏡框裝裱，到舊作品的重新處理與估價。</p>
+          </div>
+
+          <div class="faq-list">
+            <article class="faq-item">
+              <div>
+                <h3 class="question-en">Do you provide mounting services for Chinese painting and calligraphy?</h3>
+                <div class="question-zh" lang="zh-Hant">時代畫廊提供中國書畫裝裱服務嗎？</div>
+              </div>
+              <div>
+                <div class="answer-block">
+                  <span class="language-label">English</span>
+                  <p>Yes. We can help with traditional mounting for Chinese paintings and calligraphy. The most suitable approach depends on the paper or silk, dimensions, current condition, and how you would like the finished work to be displayed.</p>
+                </div>
+                <div class="answer-block" lang="zh-Hant">
+                  <span class="language-label">中文</span>
+                  <p>可以。我們可以協助處理中國書畫的傳統裝裱。具體是否適合裝裱，以及可選擇的形式，需要根據作品的紙張或絹、尺寸、保存狀況和客人的展示需求判斷。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <div>
+                <h3 class="question-en">What is scroll mounting?</h3>
+                <div class="question-zh" lang="zh-Hant">什麼是卷軸裝裱？</div>
+              </div>
+              <div>
+                <div class="answer-block">
+                  <span class="language-label">English</span>
+                  <p>Scroll mounting is a traditional presentation format for Chinese painting and calligraphy. A finished scroll can be hung for viewing and rolled for storage. Proper mounting shapes the appearance of the work while also giving it the support it needs for handling and preservation.</p>
+                </div>
+                <div class="answer-block" lang="zh-Hant">
+                  <span class="language-label">中文</span>
+                  <p>卷軸裝裱是中國書畫常見的傳統展示形式。完成後，作品可以懸掛欣賞，也可以捲起保存。裝裱不僅影響作品的外觀，也關係到作品能否得到妥善支撐和保存。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <div>
+                <h3 class="question-en">What is framed mounting?</h3>
+                <div class="question-zh" lang="zh-Hant">什麼是鏡框裝裱？</div>
+              </div>
+              <div>
+                <div class="answer-block">
+                  <span class="language-label">English</span>
+                  <p>Framed mounting prepares a work for display inside a frame, making it well suited to long-term hanging and everyday viewing. Depending on the artwork and display requirements, the frame may use acrylic glazing or an open presentation without glazing. The right approach depends on the work&rsquo;s size, materials, condition, and the client&rsquo;s preferences.</p>
+                </div>
+                <div class="answer-block" lang="zh-Hant">
+                  <span class="language-label">中文</span>
+                  <p>鏡框裝裱是將作品裝入鏡框中展示的一種裝裱形式，適合長期懸掛和日常欣賞。根據作品和展示需求，可以選擇安裝壓克力鏡片，也可以選擇無鏡片的開放式裝裱。具體形式需要根據作品尺寸、材質、保存狀況和客人的需求確定。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <div>
+                <h3 class="question-en">Why does traditional mounting take time?</h3>
+                <div class="question-zh" lang="zh-Hant">為什麼傳統裝裱需要較長時間？</div>
+              </div>
+              <div>
+                <div class="answer-block">
+                  <span class="language-label">English</span>
+                  <p>Traditional mounting is far more involved than simply adhering a work to a backing. Depending on the piece and mounting style, the process may involve preparation, backing, trimming, joining borders, final backing, flattening, and assembly. Each stage requires careful handling and appropriate drying or resting time.</p>
+                </div>
+                <div class="answer-block" lang="zh-Hant">
+                  <span class="language-label">中文</span>
+                  <p>傳統書畫裝裱並不是簡單地把作品貼在襯紙上。根據作品和裝裱方式，整個過程可能需要經過多道手工工序，包括整理、托裱、裁切、鑲接、覆背、壓平和裝配等。每一步都需要適當的處理和等待時間。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <div>
+                <h3 class="question-en">How much does mounting cost?</h3>
+                <div class="question-zh" lang="zh-Hant">裝裱價格是多少？</div>
+              </div>
+              <div>
+                <div class="answer-block">
+                  <span class="language-label">English</span>
+                  <p>Pricing depends on the artwork&rsquo;s dimensions, materials and condition, as well as the mounting format and materials selected. Please contact us with clear photos and approximate measurements so we can provide a quote. A quote for another work may not apply to yours.</p>
+                </div>
+                <div class="answer-block" lang="zh-Hant">
+                  <span class="language-label">中文</span>
+                  <p>裝裱費用取決於作品尺寸、紙張和保存狀況、所選材料以及裝裱形式。請把作品照片和大致尺寸發給我們，我們會根據具體情況提供報價。以前針對其他作品的報價不一定適用於您的作品。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <div>
+                <h3 class="question-en">Can an older or previously mounted work be remounted?</h3>
+                <div class="question-zh" lang="zh-Hant">舊畫或已經裝裱過的作品可以重新處理嗎？</div>
+              </div>
+              <div>
+                <div class="answer-block">
+                  <span class="language-label">English</span>
+                  <p>We need to examine the work first. Older paper, pigments, and mounting materials may be fragile, so we must understand the condition before recommending remounting or other treatment. Please bring the work to the gallery or contact us with clear photos for an initial assessment.</p>
+                </div>
+                <div class="answer-block" lang="zh-Hant">
+                  <span class="language-label">中文</span>
+                  <p>需要先查看作品。舊作品的紙張、顏料和原有裝裱可能比較脆弱，因此必須先了解實際狀況，才能判斷能否重新裝裱或進行其他處理。請提供清晰照片，或把作品帶到畫廊檢查。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <div>
+                <h3 class="question-en">Can you mount a painting or calligraphy work that I already own or created?</h3>
+                <div class="question-zh" lang="zh-Hant">可以為自己的書法或繪畫作品安排裝裱嗎？</div>
+              </div>
+              <div>
+                <div class="answer-block">
+                  <span class="language-label">English</span>
+                  <p>Please contact us with photos, dimensions, materials, and the type of presentation you have in mind. We will review the work, confirm whether we can accept the project, and explain the mounting options that may be suitable.</p>
+                </div>
+                <div class="answer-block" lang="zh-Hant">
+                  <span class="language-label">中文</span>
+                  <p>請先聯絡我們，並提供作品的照片、尺寸、材質以及您希望的展示形式。我們會根據作品情況確認是否能夠承接，並說明可行的裝裱方案。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <div>
+                <h3 class="question-en">What information should I provide when asking about mounting?</h3>
+                <div class="question-zh" lang="zh-Hant">諮詢裝裱時需要提供什麼資料？</div>
+              </div>
+              <div>
+                <div class="answer-block">
+                  <span class="language-label">English</span>
+                  <p>For a useful initial assessment, please provide:</p>
+                  <ul>
+                    <li>Clear photographs of the front and back</li>
+                    <li>The artwork&rsquo;s dimensions</li>
+                    <li>The material, such as xuan paper, silk, or another type of paper</li>
+                    <li>Whether the work is currently mounted</li>
+                    <li>Any tears, creases, stains, lifting, or other damage</li>
+                    <li>Your preferred presentation, such as a scroll or framed format</li>
+                    <li>Any desired completion date</li>
+                  </ul>
+                  <p style="margin-top: 12px;">Advice based on photographs is preliminary. We may need to see the work in person before confirming the final approach.</p>
+                </div>
+                <div class="answer-block" lang="zh-Hant">
+                  <span class="language-label">中文</span>
+                  <p>為了方便我們評估，請盡量提供：</p>
+                  <ul>
+                    <li>作品正面和背面的清晰照片</li>
+                    <li>作品本身的尺寸</li>
+                    <li>作品材質，例如宣紙、絹或其他紙張</li>
+                    <li>目前是否已經裝裱</li>
+                    <li>是否存在破損、摺痕、污漬或脫落</li>
+                    <li>希望採用的形式，例如卷軸或鏡框</li>
+                    <li>是否有希望完成的日期</li>
+                  </ul>
+                  <p style="margin-top: 12px;">僅憑照片提供的意見屬於初步判斷，最終方案可能需要在看到實物後才能確定。</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq-section" id="artwork">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Purchasing Artwork</p>
+              <h2>Finding and asking about a particular work.</h2>
+            </div>
+            <p lang="zh-Hant">查詢畫廊作品是否仍可購買，以及取得特定作品的價格。</p>
+          </div>
+
+          <div class="faq-list">
+            <article class="faq-item">
+              <div>
+                <h3 class="question-en">Are the works displayed in the gallery available for purchase?</h3>
+                <div class="question-zh" lang="zh-Hant">畫廊裡的作品都可以購買嗎？</div>
+              </div>
+              <div>
+                <div class="answer-block">
+                  <span class="language-label">English</span>
+                  <p>Most works on display are available for purchase, although availability and status can change. If a particular piece interests you, please show us a photograph or provide enough information to identify it, and we will confirm whether it is still available.</p>
+                </div>
+                <div class="answer-block" lang="zh-Hant">
+                  <span class="language-label">中文</span>
+                  <p>大部分展出的作品可以購買，但作品的庫存和狀態可能隨時變化。如果您對某件作品感興趣，請向我們提供照片或作品資料，我們會為您確認是否仍然可購買。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <div>
+                <h3 class="question-en">How can I ask about the price of a painting?</h3>
+                <div class="question-zh" lang="zh-Hant">如何查詢一幅畫的價格？</div>
+              </div>
+              <div>
+                <div class="answer-block">
+                  <span class="language-label">English</span>
+                  <p>You can show us a photograph of the work or point it out during your visit. Each piece is priced individually based on factors such as the artist, dimensions, period, subject matter, and mounting or framing.</p>
+                </div>
+                <div class="answer-block" lang="zh-Hant">
+                  <span class="language-label">中文</span>
+                  <p>您可以把作品的照片發給我們，或在到訪畫廊時指出具體作品。由於不同作品的作者、尺寸、年代、題材和裝裱方式不同，每件作品都會單獨定價。</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq-section" id="visiting">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Visiting &amp; Contact</p>
+              <h2>Plan a visit or prepare an inquiry.</h2>
+            </div>
+            <p lang="zh-Hant">營業時間、到訪安排，以及如何讓我們更快、更準確地回覆您的問題。</p>
+          </div>
+
+          <div class="faq-list">
+            <article class="faq-item">
+              <div>
+                <h3 class="question-en">What are the gallery&rsquo;s hours?</h3>
+                <div class="question-zh" lang="zh-Hant">畫廊的營業時間是什麼？</div>
+              </div>
+              <div>
+                <div class="answer-block">
+                  <span class="language-label">English</span>
+                  <p>The gallery is normally staffed every day from 11:00 AM to 3:00 PM. Hours may occasionally change when we are away or attending to other commitments. If you are making a special trip, please contact us before you set out.</p>
+                </div>
+                <div class="answer-block" lang="zh-Hant">
+                  <span class="language-label">中文</span>
+                  <p>畫廊通常每天上午 11:00 至下午 3:00 有人在店內。營業安排偶爾可能因外出或其他原因臨時調整。如果您從較遠的地方前來，建議出發前先聯絡我們確認。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <div>
+                <h3 class="question-en">May I visit without an appointment?</h3>
+                <div class="question-zh" lang="zh-Hant">可以直接到畫廊參觀嗎？</div>
+              </div>
+              <div>
+                <div class="answer-block">
+                  <span class="language-label">English</span>
+                  <p>Yes, you are welcome to stop by during regular gallery hours. If you would like to see a particular work, discuss a mounting project, or have a longer consultation, contacting us in advance will help us prepare for your visit.</p>
+                </div>
+                <div class="answer-block" lang="zh-Hant">
+                  <span class="language-label">中文</span>
+                  <p>歡迎您在營業時間內到訪。如果您希望查看某件特定作品、討論裝裱，或需要較長時間的諮詢，建議提前聯絡，以便我們作出安排。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <div>
+                <h3 class="question-en">How will I know if the gallery is temporarily closed?</h3>
+                <div class="question-zh" lang="zh-Hant">臨時關閉時會怎樣通知？</div>
+              </div>
+              <div>
+                <div class="answer-block">
+                  <span class="language-label">English</span>
+                  <p>We try to update our posted hours in advance when the gallery must close temporarily. If you are planning a special trip, however, we still recommend contacting us to confirm that we will be open that day.</p>
+                </div>
+                <div class="answer-block" lang="zh-Hant">
+                  <span class="language-label">中文</span>
+                  <p>畫廊偶爾可能臨時關閉。我們會盡量提前更新營業資訊，但如果您計劃專程前來，仍建議先聯絡我們確認當天是否營業。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <div>
+                <h3 class="question-en">Why might I not receive an immediate reply?</h3>
+                <div class="question-zh" lang="zh-Hant">為什麼有時沒有立即收到回覆？</div>
+              </div>
+              <div>
+                <div class="answer-block">
+                  <span class="language-label">English</span>
+                  <p>Our day may include assisting visitors, working with artwork, or being away from the gallery, so we may not always be able to reply immediately. We will respond as soon as we see your message. Thank you for your patience and understanding.</p>
+                </div>
+                <div class="answer-block" lang="zh-Hant">
+                  <span class="language-label">中文</span>
+                  <p>畫廊的日常工作有時包括接待客人、處理作品或外出，因此可能無法立即回覆。我們會在看到留言後盡快與您聯絡，感謝您的理解和耐心。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <div>
+                <h3 class="question-en">What should I include so you can answer my inquiry accurately?</h3>
+                <div class="question-zh" lang="zh-Hant">聯絡畫廊時，怎樣才能更快得到準確回覆？</div>
+              </div>
+              <div>
+                <div class="answer-block">
+                  <span class="language-label">English</span>
+                  <p>Please explain what you would like to ask about. For artwork or mounting inquiries, clear photographs, dimensions, current condition, and your preferred result are especially helpful. The more complete the information, the more accurately we can respond.</p>
+                </div>
+                <div class="answer-block" lang="zh-Hant">
+                  <span class="language-label">中文</span>
+                  <p>請在留言中說明您想諮詢的事項。如果是查詢作品或裝裱服務，最好同時附上清晰照片、尺寸和相關要求。資料越完整，我們越容易準確回覆。</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq-section" id="arrangements">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Purchase Arrangements</p>
+              <h2>Pickup, shipping, payment, and policies.</h2>
+            </div>
+            <p lang="zh-Hant">購買前需要確認的取貨、郵寄、付款及退換安排。</p>
+          </div>
+
+          <div class="faq-list">
+            <article class="faq-item">
+              <div>
+                <h3 class="question-en">Can I arrange pickup or shipping?</h3>
+                <div class="question-zh" lang="zh-Hant">可以安排取貨或郵寄嗎？</div>
+              </div>
+              <div>
+                <div class="answer-block">
+                  <span class="language-label">English</span>
+                  <p>Pickup and shipping arrangements depend on the artwork&rsquo;s dimensions, mounting or framing, handling requirements, and destination. Please contact us before purchasing so we can confirm the available options, packaging, and related costs.</p>
+                </div>
+                <div class="answer-block" lang="zh-Hant">
+                  <span class="language-label">中文</span>
+                  <p>取貨或郵寄安排取決於作品的尺寸、裝裱方式、保存要求和目的地。請在購買前聯絡我們，確認可行方式、包裝安排及相關費用。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <div>
+                <h3 class="question-en">What payment methods do you accept?</h3>
+                <div class="question-zh" lang="zh-Hant">接受哪些付款方式？</div>
+              </div>
+              <div>
+                <div class="answer-block">
+                  <span class="language-label">English</span>
+                  <p>In the gallery, we accept cash and major credit cards. Out-of-state clients purchasing remotely may pay by Zelle, PayPal, or Venmo. Personal checks are also accepted, but we can only ship the artwork after the check has cleared. Please contact us before payment if you have any questions about the arrangements.</p>
+                </div>
+                <div class="answer-block" lang="zh-Hant">
+                  <span class="language-label">中文</span>
+                  <p>店內接受現金和各大信用卡付款。外州客戶在線購買時，可以使用 Zelle、PayPal 或 Venmo 付款。如果使用個人支票付款，必須等支票兌現後，我們才會安排發貨。如有任何付款問題，請在付款前聯絡我們確認具體安排。</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <div>
+                <h3 class="question-en">Can a purchase be returned or exchanged?</h3>
+                <div class="question-zh" lang="zh-Hant">購買後可以退換嗎？</div>
+              </div>
+              <div>
+                <div class="answer-block">
+                  <span class="language-label">English</span>
+                  <p>Terms may vary depending on the artwork or service. Before purchasing a work or approving a mounting project, please ask us about the return, exchange, cancellation, and deposit terms that apply to that transaction.</p>
+                </div>
+                <div class="answer-block" lang="zh-Hant">
+                  <span class="language-label">中文</span>
+                  <p>不同作品和服務的情況可能不同。購買作品或確認裝裱服務前，請向畫廊了解適用於該筆交易的退換、取消及訂金規定。</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <aside class="closing-card" aria-label="Visit Stylers Art Gallery">
+            <div>
+              <h2>Still have a question?</h2>
+              <p>Visit the gallery or contact us about a particular artwork, mounting project, or purchase.</p>
+              <p lang="zh-Hant">仍有問題？歡迎到訪畫廊，或聯絡我們查詢特定作品、裝裱服務或購買安排。</p>
+            </div>
+            <div class="closing-actions">
+              <a class="nav-link primary" href="index.html#visit">Hours &amp; Contact</a>
+              <a class="nav-link" href="index.html">← Home · 主頁</a>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>Stylers Art Gallery <mark>時代畫廊</mark></p>
+        <p><a href="index.html">Home · 主頁</a> · 661 Jackson St, San Francisco, CA 94133</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
