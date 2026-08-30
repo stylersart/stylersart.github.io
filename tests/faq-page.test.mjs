@@ -17,6 +17,17 @@ test("the FAQ provides English and Chinese content", () => {
   assert.match(faq, /接受哪些付款方式？/);
 });
 
+test("specialty goods and services appear on both pages", () => {
+  for (const content of [home, faq]) {
+    assert.match(content, /Four Treasures of the Study/);
+    assert.match(content, /Commissioned Calligraphy|custom calligraphy work/);
+    assert.match(content, /24K Gold Calligraphy|written in 24K gold/);
+    assert.match(content, /24K Gold-Leaf Gilding|24K gold-leaf gilding/);
+  }
+
+  assert.match(faq, /作品必須送到本店辦理，恕不提供外出或上門服務/);
+});
+
 test("the FAQ provides convenient routes back to the homepage", () => {
   assert.ok((faq.match(/href="index\.html(?:#visit)?"/g) ?? []).length >= 4);
   assert.match(faq, /Back to Home · 返回主頁/);
